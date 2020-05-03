@@ -56,11 +56,14 @@ public class Juego extends AppCompatActivity {
                 }
 
                 if (contAlbum==0||contNombre==0){
+                    Usuario.getInstance().setPuntuacion(Usuario.getInstance().getPuntuacion()+100);
                     Log.d("ACERTADO","ACERTADO");
                     Intent i = new Intent(getApplicationContext(),Resultado.class);
                     i.putExtra("Nombre",track.name+ " - "+track.album.name);
                     i.putExtra("Foto",track.imageUri.raw);
                     startActivity(i);
+                }else{
+                    Log.d("FALLO","FALLO");
                 }
 
             }

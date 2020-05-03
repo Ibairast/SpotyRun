@@ -33,11 +33,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button jugar = findViewById(R.id.buttonJugar);
+        Button misPuntuaciones = findViewById(R.id.misPuntuacion);
+        Button ranking = findViewById(R.id.ranking);
         jugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),Playlists.class);
                 startActivity(i);
+            }
+        });
+
+        misPuntuaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        ranking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
