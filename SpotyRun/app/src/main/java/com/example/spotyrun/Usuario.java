@@ -9,6 +9,7 @@ public class Usuario {
     private static SpotifyAppRemote mSpotifyAppRemote;
     private static String playlist;
     private static int puntuacion;
+    private static int vidas;
 
     public static Usuario getInstance() {
         if (miUsuario == null) {
@@ -18,6 +19,14 @@ public class Usuario {
     }
 
     private Usuario() {
+    }
+
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(int vidas) {
+        Usuario.vidas = vidas;
     }
 
     public void setNombreUsuario(String nombreUsu){

@@ -19,6 +19,9 @@ public class Playlists extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_playlists);
 
+        Usuario.getInstance().setPuntuacion(0);
+        Usuario.getInstance().setVidas(3);
+
         Button disney = findViewById(R.id.buttonDisney);
         disney.setOnClickListener(new View.OnClickListener() {
             @Override
