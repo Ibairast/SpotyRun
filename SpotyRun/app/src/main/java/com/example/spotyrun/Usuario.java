@@ -1,6 +1,20 @@
 package com.example.spotyrun;
 
+import android.util.Log;
+import android.util.Pair;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Usuario {
     private static  Usuario miUsuario = null;
@@ -10,6 +24,8 @@ public class Usuario {
     private static String playlist;
     private static int puntuacion;
     private static int vidas;
+    private static FirebaseFirestore db;
+    private static HashMap<String,Long> puntuaciones;
 
     public static Usuario getInstance() {
         if (miUsuario == null) {
@@ -18,7 +34,56 @@ public class Usuario {
         return miUsuario;
     }
 
+    public HashMap<String, Long> getPuntuaciones() {
+        return puntuaciones;
+    }
+
     private Usuario() {
+         db = FirebaseFirestore.getInstance();
+    }
+
+    public void guardarPuntuacion(String user){
+        Map<String, Object> punt = new HashMap<>();
+        punt.put("Puntuacion", puntuacion);
+        punt.put("Fecha",System.currentTimeMillis()*100);
+        db.collection("Partidas").document(user).collection("Puntuaciones").add(punt);
+    }
+
+    public void obtenerPuntuaciones(){
+        puntuaciones = new HashMap<>();
+        db.collection("Partidas")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("OBTENER", document.getId());
+                                sacarPuntuacion(document.getId());
+                            }
+                        } else {
+                            Log.w("OBTENER", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void sacarPuntuacion(String id) {
+        db.collection("Partidas").document(id).collection("Puntuaciones")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("OBTENER", String.valueOf(document.get("Puntuacion")));
+                                puntuaciones.put(document.get("Puntuacion")+id, (Long) document.get("Puntuacion"));
+                            }
+                        } else {
+                            Log.w("OBTENER", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
     }
 
     public int getVidas() {

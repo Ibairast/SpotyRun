@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
+        Usuario.getInstance().obtenerPuntuaciones();
+
         Button jugar = findViewById(R.id.buttonJugar);
         Button misPuntuaciones = findViewById(R.id.misPuntuacion);
         Button ranking = findViewById(R.id.ranking);
@@ -52,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         ranking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getApplicationContext(),Ranking.class);
+                startActivity(i);
             }
         });
 
