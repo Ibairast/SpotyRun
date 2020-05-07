@@ -6,6 +6,8 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -27,6 +29,16 @@ public class Usuario {
     private static FirebaseFirestore db;
     private static HashMap<String,Long> puntuaciones;
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numer) {
+        numero = numer;
+    }
+
+    private int numero;
+
     public static Usuario getInstance() {
         if (miUsuario == null) {
             miUsuario = new Usuario();
@@ -46,7 +58,22 @@ public class Usuario {
         Map<String, Object> punt = new HashMap<>();
         punt.put("Puntuacion", puntuacion);
         punt.put("Fecha",System.currentTimeMillis()*100);
-        db.collection("Partidas").document(user).collection("Puntuaciones").add(punt);
+
+        db.collection("Partidas").document(user).set(punt)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("SUBIDA", "DocumentSnapshot successfully written!");
+                        db.collection("Partidas").document(user).collection("Puntuaciones").add(punt);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("SUBIDA", "Error writing document", e);
+                    }
+                });
+
     }
 
     public void obtenerPuntuaciones(){
@@ -77,7 +104,7 @@ public class Usuario {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d("OBTENER", String.valueOf(document.get("Puntuacion")));
-                                puntuaciones.put(document.get("Puntuacion")+id, (Long) document.get("Puntuacion"));
+                                puntuaciones.put(id+" "+document.get("Puntuacion"), (Long) document.get("Puntuacion"));
                             }
                         } else {
                             Log.w("OBTENER", "Error getting documents.", task.getException());

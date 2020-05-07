@@ -88,7 +88,7 @@ public class Juego extends AppCompatActivity {
         });
 
         // Play a playlist
-        mSpotifyAppRemote.getPlayerApi().skipToIndex(Usuario.getInstance().getPlaylist(), (int) (Math.random()*85+1));
+        mSpotifyAppRemote.getPlayerApi().skipToIndex(Usuario.getInstance().getPlaylist(), (int) (Math.random()*Usuario.getInstance().getNumero()));
 
         // Subscribe to PlayerState
         mSpotifyAppRemote.getPlayerApi()
@@ -103,4 +103,10 @@ public class Juego extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        mSpotifyAppRemote.getPlayerApi().pause();
+        finish();
+    }
 }

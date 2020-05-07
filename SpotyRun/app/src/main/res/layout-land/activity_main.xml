@@ -21,24 +21,11 @@
         android:id="@+id/buttonJugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="76dp"
         android:text="Jugar"
-        app:layout_constraintBottom_toTopOf="@+id/misPuntuacion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/misPuntuacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="19dp"
-        android:text="Mis puntuaciones"
         app:layout_constraintBottom_toTopOf="@+id/ranking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

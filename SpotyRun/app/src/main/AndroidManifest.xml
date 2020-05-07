@@ -16,7 +16,8 @@
         <activity android:name=".Resultado" />
         <activity android:name=".Juego" />
         <activity android:name=".Playlists" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Animacion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,6 +28,24 @@
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4643045117007989~9829978434"/>
+
+        <receiver
+            android:name="MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="com.spotify.music.playbackstatechanged"/>
+                <action android:name="com.spotify.music.metadatachanged"/>
+                <action android:name="com.spotify.music.queuechanged"/>
+                <action android:name="com.spotify.music"/>
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>
