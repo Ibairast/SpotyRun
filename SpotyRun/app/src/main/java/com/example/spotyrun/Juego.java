@@ -11,8 +11,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.spotyrun.Model.Song;
+import com.example.spotyrun.SpotifyConnect.SpotifyConnector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
 import com.spotify.protocol.types.Track;
+
+import java.util.HashSet;
+import java.util.Random;
 
 public class Juego extends AppCompatActivity {
     public static SpotifyAppRemote mSpotifyAppRemote;
@@ -88,8 +93,23 @@ public class Juego extends AppCompatActivity {
         });
 
         // Play a playlist
-        mSpotifyAppRemote.getPlayerApi().skipToIndex(Usuario.getInstance().getPlaylist(), (int) (Math.random()*Usuario.getInstance().getNumero()));
-
+        if (Usuario.getInstance().getPlaylist().equals("songs")){
+            HashSet<Song> canciones = Usuario.getInstance().getCanciones();
+            int item = new Random().nextInt(50);
+            int i = 0;
+            Song song=null;
+            for(Song s : canciones){
+                if (i == item) {
+                    song = s;
+                    break;
+                }
+                i++;
+            }
+            String songToPlay = "spotify:track:" + song.getId();
+            mSpotifyAppRemote.getPlayerApi().play(songToPlay);
+        }else {
+            mSpotifyAppRemote.getPlayerApi().skipToIndex(Usuario.getInstance().getPlaylist(), (int) (Math.random() * Usuario.getInstance().getNumero()));
+        }
         // Subscribe to PlayerState
         mSpotifyAppRemote.getPlayerApi()
                 .subscribeToPlayerState()

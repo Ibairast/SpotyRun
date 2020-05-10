@@ -10,7 +10,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/black_ops_one"
         android:text="SpotyRun"
+        android:textAllCaps="false"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="70dp"
+        android:textStyle="normal|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -21,12 +26,13 @@
         android:id="@+id/buttonJugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="236dp"
+        android:layout_marginBottom="80dp"
         android:text="Jugar"
         app:layout_constraintBottom_toTopOf="@+id/ranking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.925" />
 
     <Button
         android:id="@+id/ranking"

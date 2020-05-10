@@ -2,51 +2,72 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutResultado"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Resultado"
-    android:id="@+id/layoutResultado">
+    tools:context=".Resultado">
 
     <TextView
         android:id="@+id/resultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="304dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="viewStart"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.197"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultadoImagen"
-        app:layout_constraintVertical_bias="0.243" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/resultadoImagen"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/resultadoImagen"
-        android:layout_width="465dp"
-        android:layout_height="175dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="326dp"
+        android:layout_height="322dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/vidas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
+        android:layout_width="83dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="112dp"
         android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="#FF9800"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.197"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/resultado"
+        app:layout_constraintVertical_bias="0.32" />
 
     <Button
         android:id="@+id/siguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="16dp"
+        android:enabled="true"
         android:text="Siguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/acierto_anim"
+        android:layout_width="198dp"
+        android:layout_height="183dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/siguiente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/vidas"
+        app:lottie_autoPlay="true" />
 </androidx.constraintlayout.widget.ConstraintLayout>

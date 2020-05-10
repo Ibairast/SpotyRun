@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Ranking"></activity>
         <activity android:name=".GameOver" />
+        <activity android:name=".SplashActivity" />
         <activity android:name=".Resultado" />
         <activity android:name=".Juego" />
         <activity android:name=".Playlists" />
@@ -32,20 +33,10 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-4643045117007989~9829978434"/>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
-        <receiver
-            android:name="MyBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="com.spotify.music.playbackstatechanged"/>
-                <action android:name="com.spotify.music.metadatachanged"/>
-                <action android:name="com.spotify.music.queuechanged"/>
-                <action android:name="com.spotify.music"/>
-            </intent-filter>
-
-        </receiver>
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
 import com.spotify.protocol.client.CallResult;
 import com.spotify.protocol.types.ImageUri;
@@ -24,10 +25,11 @@ public class Resultado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
         ConstraintLayout cl = findViewById(R.id.layoutResultado);
+        LottieAnimationView anim = findViewById(R.id.acierto_anim);
         if(getIntent().getExtras().getBoolean("Resultado")){
-            cl.setBackgroundColor(Color.GREEN);
+            anim.setAnimation("8808-correct-animation.json");
         }else{
-            cl.setBackgroundColor(Color.RED);
+            anim.setAnimation("4698-wrong-answer.json");
         }
 
         Button siguiente = findViewById(R.id.siguiente);

@@ -5,6 +5,7 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
+import com.example.spotyrun.Model.Song;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -16,6 +17,7 @@ import com.spotify.android.appremote.api.SpotifyAppRemote;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class Usuario {
@@ -28,6 +30,16 @@ public class Usuario {
     private static int vidas;
     private static FirebaseFirestore db;
     private static HashMap<String,Long> puntuaciones;
+
+    public HashSet<Song> getCanciones() {
+        return canciones;
+    }
+
+    public void setCanciones(HashSet<Song> canciones) {
+        Usuario.canciones = canciones;
+    }
+
+    private static HashSet<Song> canciones;
 
     public int getNumero() {
         return numero;

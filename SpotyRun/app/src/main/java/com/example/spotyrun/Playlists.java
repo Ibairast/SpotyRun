@@ -21,11 +21,19 @@ public class Playlists extends AppCompatActivity {
         setContentView(R.layout.activity_playlists);
 
         IntentFilter filter = new IntentFilter("avisoPersonalizado");
-        MyBroadcastReceiver receiver = new MyBroadcastReceiver();
-        registerReceiver(receiver, filter);
 
         Usuario.getInstance().setPuntuacion(0);
         Usuario.getInstance().setVidas(3);
+
+        Button X = findViewById(R.id.buttonSplash);
+        X.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Usuario.getInstance().setPlaylist("songs");
+                Intent i = new Intent(getApplicationContext(),SplashActivity.class);
+                startActivity(i);
+            }
+        });
 
         Button disney = findViewById(R.id.buttonDisney);
         disney.setOnClickListener(new View.OnClickListener() {
