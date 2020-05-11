@@ -50,6 +50,7 @@ public class Animacion extends AppCompatActivity {
             public void onAnimationEnd(Animation arg0) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+                finish();
             }
 
             @Override
