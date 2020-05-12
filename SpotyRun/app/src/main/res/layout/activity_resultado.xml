@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/resultado"
         android:layout_width="178dp"
-        android:layout_height="119dp"
+        android:layout_height="151dp"
         android:text="TextView"
         android:textAlignment="viewStart"
         android:textSize="22dp"
