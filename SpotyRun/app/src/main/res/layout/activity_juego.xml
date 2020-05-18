@@ -51,6 +51,7 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonAceptar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

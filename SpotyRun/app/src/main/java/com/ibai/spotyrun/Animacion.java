@@ -67,7 +67,7 @@ public class Animacion extends AppCompatActivity {
                         .showAuthView(true)
                         .build();
 
-        SpotifyAppRemote.connect(this, connectionParams,
+        SpotifyAppRemote.connect(getApplicationContext(), connectionParams,
                 new Connector.ConnectionListener() {
 
                     public void onConnected(SpotifyAppRemote spotifyAppRemote) {
@@ -79,7 +79,6 @@ public class Animacion extends AppCompatActivity {
 
                     public void onFailure(Throwable throwable) {
                         Log.e("MyActivity", throwable.getMessage(), throwable);
-
                         // Something went wrong when attempting to connect! Handle errors here
                     }
                 });

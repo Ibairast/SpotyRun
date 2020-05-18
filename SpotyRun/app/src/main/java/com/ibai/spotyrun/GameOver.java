@@ -3,6 +3,7 @@ package com.ibai.spotyrun;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,9 @@ public class GameOver extends AppCompatActivity {
         setContentView(R.layout.activity_game_over);
 
         EditText nombre = findViewById(R.id.nombre);
-        nombre.setFocusedByDefault(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            nombre.setFocusedByDefault(true);
+        }
 
         TextView puntuaciones = findViewById(R.id.puntuaciones);
         puntuaciones.setText("Has obtenido "+Usuario.getInstance().getPuntuacion()+" puntos!");
@@ -58,7 +61,6 @@ public class GameOver extends AppCompatActivity {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-
             }
 
             @Override
@@ -77,7 +79,9 @@ public class GameOver extends AppCompatActivity {
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
-            Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+            finish();
         }
     }
 

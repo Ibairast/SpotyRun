@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Ranking extends AppCompatActivity {
-    private ListView listview;
     private List<String> names;
     HashMap<String, Long> res;
 
@@ -46,7 +45,7 @@ public class Ranking extends AppCompatActivity {
 
         //Agrega valores ordenados a array original
         for (int j=0; j< nombres.length ; j++) {
-            nombres[j] = nombresAOrdenar[j][1].toString() + " "+ nombresAOrdenar[j][0].toString();
+            nombres[j] = nombresAOrdenar[j][1].toString() + " | "+ nombresAOrdenar[j][0].toString();
         }
 
         names= Arrays.asList(nombres);
@@ -54,8 +53,7 @@ public class Ranking extends AppCompatActivity {
 
 
         ListView lv = findViewById(R.id.listview);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_view, names);
 
         lv.setAdapter(adapter);
     }

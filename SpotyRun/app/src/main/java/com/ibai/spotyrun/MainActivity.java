@@ -47,4 +47,9 @@ public class MainActivity extends AppCompatActivity {
         super.onPostResume();
         Usuario.getInstance().obtenerPuntuaciones();
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }
