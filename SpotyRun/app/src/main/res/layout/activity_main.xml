@@ -46,4 +46,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="391dp"
+        android:layout_height="126dp"
+        android:layout_marginBottom="4dp"
+        android:overScrollMode="ifContentScrolls"
+        android:textColor="#FB2828"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ranking" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

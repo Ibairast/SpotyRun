@@ -32,6 +32,7 @@ public class Playlists extends AppCompatActivity {
                 Usuario.getInstance().setPlaylist("songs");
                 Intent i = new Intent(getApplicationContext(),SplashActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -42,6 +43,7 @@ public class Playlists extends AppCompatActivity {
                 Usuario.getInstance().setPlaylist("spotify:playlist:4BYBmf7eMuBicaNE3kJYTU");
                 Intent i = new Intent(getApplicationContext(),Juego.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -53,6 +55,7 @@ public class Playlists extends AppCompatActivity {
                 Usuario.getInstance().setNumero(51);
                 Intent i = new Intent(getApplicationContext(),Juego.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -64,6 +67,7 @@ public class Playlists extends AppCompatActivity {
                 Usuario.getInstance().setNumero(51);
                 Intent i = new Intent(getApplicationContext(),Juego.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -75,6 +79,7 @@ public class Playlists extends AppCompatActivity {
                 Usuario.getInstance().setNumero(52);
                 Intent i = new Intent(getApplicationContext(),Juego.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -86,6 +91,7 @@ public class Playlists extends AppCompatActivity {
                 Usuario.getInstance().setNumero(51);
                 Intent i = new Intent(getApplicationContext(),Juego.class);
                 startActivity(i);
+                finish();
             }
         });
 

@@ -19,15 +19,16 @@ import java.util.HashSet;
 import java.util.Map;
 
 public class Usuario {
-    private static  Usuario miUsuario = null;
-    private static  String nombreUsuario;
-    private static  int idUsuario;
-    private static SpotifyAppRemote mSpotifyAppRemote;
-    private static String playlist;
-    private static int puntuacion;
-    private static int vidas;
-    private static FirebaseFirestore db;
-    private static HashMap<String,Long> puntuaciones;
+    private static Usuario miUsuario = null;
+    private String nombreUsuario;
+    private int idUsuario;
+    private SpotifyAppRemote mSpotifyAppRemote;
+    private String playlist;
+    private int puntuacion;
+    private int vidas;
+    private FirebaseFirestore db;
+    private HashMap<String,Long> puntuaciones;
+    private String exception="";
 
     public HashSet<Song> getCanciones() {
         return canciones;
@@ -128,7 +129,7 @@ public class Usuario {
     }
 
     public void setVidas(int vidas) {
-        Usuario.vidas = vidas;
+        this.vidas = vidas;
     }
 
     public void setNombreUsuario(String nombreUsu){
@@ -152,7 +153,7 @@ public class Usuario {
     }
 
     public void setPuntuacion(int puntuacion) {
-        Usuario.puntuacion = puntuacion;
+        this.puntuacion = puntuacion;
     }
 
 
@@ -161,7 +162,7 @@ public class Usuario {
     }
 
     public void setmSpotifyAppRemote(SpotifyAppRemote mSpotifyAppRemote) {
-        Usuario.mSpotifyAppRemote = mSpotifyAppRemote;
+        this.mSpotifyAppRemote = mSpotifyAppRemote;
     }
 
     public String getPlaylist() {
@@ -169,6 +170,14 @@ public class Usuario {
     }
 
     public void setPlaylist(String playlist) {
-        Usuario.playlist = playlist;
+        this.playlist = playlist;
+    }
+
+    public String getException() {
+        return exception;
+    }
+
+    public void setException(String exception) {
+        this.exception = exception;
     }
 }

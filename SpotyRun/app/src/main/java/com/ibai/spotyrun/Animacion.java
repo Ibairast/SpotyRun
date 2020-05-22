@@ -80,6 +80,7 @@ public class Animacion extends AppCompatActivity {
                     public void onFailure(Throwable throwable) {
                         Log.e("MyActivity", throwable.getMessage(), throwable);
                         // Something went wrong when attempting to connect! Handle errors here
+                        Usuario.getInstance().setException(throwable.getStackTrace().toString());
                     }
                 });
     }
